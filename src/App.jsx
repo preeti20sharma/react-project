@@ -8,6 +8,11 @@ import Student from './Student'
 import Advprops from './AdvProps'
 import Wrapper from '../Wrapper'
 import Skills from './assets/Skills'
+import Hradio from './Hradio'
+import Arraydata from './Arraydata'
+import ReuseCo from './ReuseCo'
+import Clock from './Clock'
+import College from './College'
 
 const App = () => {
   const [fruit, setFruit] = useState("mango");
@@ -16,6 +21,7 @@ const App = () => {
   const [Name, setName] = useState();
   const [password, setpassword] = useState();
   const [email, setemail] = useState();
+  const [color, setcolor] = useState("yellow");
 
 
   function handlevalue() {
@@ -35,6 +41,98 @@ const App = () => {
     email: " abcde@test.com"
   }
   let userarray = ["sam", "peter", "tom"]
+  const userData = [
+    {
+      name: 'sam',
+      age: '24',
+      email: 'sam@test.com',
+      ID: 1,
+    },
+    {
+      name: 'peter',
+      age: '44',
+      email: 'peter@test.com',
+      ID: 2,
+    },
+    {
+      name: 'tom',
+      age: '34',
+      email: 'tom@test.com',
+      ID: 3,
+    },
+  ]
+  const handlecolor = (event) => {
+    setcolor(event.target.value)
+  };
+
+  const collegedata = [
+    {
+      name: "IET Alwar",
+      city: "alwar",
+      website: "www.iet.com",
+      student: [
+        {
+          name: "sam",
+          age: 24,
+          email: "sam@test.com"
+        },
+        {
+          name: "peter",
+          age: 34,
+          email: "peter@test.com"
+        },
+        {
+          name: "tom",
+          age: 44,
+          email: "tom@test.com"
+        },
+      ]
+    },
+    {
+      name: "IIT Delhi",
+      city: "Delhi",
+      website: "www.delhi.com",
+      student: [
+        {
+          name: "sam",
+          age: 24,
+          email: "sam@test.com"
+        },
+        {
+          name: "peter",
+          age: 34,
+          email: "peter@test.com"
+        },
+        {
+          name: "tom",
+          age: 44,
+          email: "tom@test.com"
+        },
+      ]
+    },
+    {
+      name: "NIT delhi",
+      city: "Delhi",
+      website: "www.nit.com",
+      student: [
+        {
+          name: "sam",
+          age: 24,
+          email: "sam@test.com"
+        },
+        {
+          name: "peter",
+          age: 34,
+          email: "peter@test.com"
+        },
+        {
+          name: "tom",
+          age: 44,
+          email: "tom@test.com"
+        },
+      ]
+    },
+  ]
 
   return (
     <div>
@@ -92,7 +190,36 @@ const App = () => {
       {/* ---------handle checkbox ---------- */}
       <Skills />
       {/*-------------- Handle Radio and Dropdown------ */}
+      <Hradio />
+      {/*------------ Loop in JSX with Map Function ---------- */}
+      <Arraydata />
+      {/* --------Reuse component in loop --------*/}
+      {
+        userData.map((user) => (
+          <div key={user.ID}>
+            <ReuseCo data={user} />
+          </div>
+        ))
+      }
 
+      {/*------------ React JS task for Props----------- */}
+      <select defaultValue={"yellow"} onChange={handlecolor}>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="yellow">yellow</option>
+        <option value="white">white</option>
+      </select>
+      <Clock color={color} />
+
+      {/*------------ Nested Looping with component --------- */}
+      <h2>Nested Looping with component </h2>
+      {
+        collegedata.map((college, index) => (
+          <div key={index}>
+            <College college={college} />
+          </div>
+        ))
+      }
     </div>
   )
 }
