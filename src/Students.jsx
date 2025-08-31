@@ -6,6 +6,9 @@ const Students = ({ student }) => {
             <h4>student name:{student.name}</h4>
             <ul>
                 <li>
+                    {student.name}
+                </li>
+                <li>
                     {student.age}
                 </li>
                 <li>

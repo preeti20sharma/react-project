@@ -13,6 +13,8 @@ import Arraydata from './Arraydata'
 import ReuseCo from './ReuseCo'
 import Clock from './Clock'
 import College from './College'
+import UseEffct from './UseEffct'
+import Counter from './Counter'
 
 const App = () => {
   const [fruit, setFruit] = useState("mango");
@@ -22,6 +24,9 @@ const App = () => {
   const [password, setpassword] = useState();
   const [email, setemail] = useState();
   const [color, setcolor] = useState("yellow");
+  const [count, setcount] = useState(0);
+  const [data, setdata] = useState(0);
+  const [display, setdisplay] = useState(true)
 
 
   function handlevalue() {
@@ -220,6 +225,20 @@ const App = () => {
           </div>
         ))
       }
+
+      {/*------ useEffect hook---------------- */}
+      <UseEffct />
+      {/* lifcycle method */}
+      {display && <Counter count={count} data={data} />}
+      <button onClick={() => {
+        setcount(count + 1)
+      }}>count{count}</button>
+      <button onClick={() => {
+        setdata(data + 1)
+      }}>data{data}</button>
+      <button onClick={() => {
+        setdisplay(!display)
+      }}>Toggle</button>
     </div>
   )
 }
