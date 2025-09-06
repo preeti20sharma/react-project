@@ -6,7 +6,7 @@ import names from './Names'
 import Namesvalue from './Names'
 import Student from './Student'
 import Advprops from './AdvProps'
-import Wrapper from '../Wrapper'
+import Wrapper from './Wrapper'
 import Skills from './assets/Skills'
 import Hradio from './Hradio'
 import Arraydata from './Arraydata'
@@ -15,6 +15,11 @@ import Clock from './Clock'
 import College from './College'
 import UseEffct from './UseEffct'
 import Counter from './Counter'
+import Styling from './Styling'
+import Dystyle from './Dystyle'
+import Exstyling from './Exstyling'
+import UserProfile from './UserProfile'
+import Styledcom from './Styledcom'
 
 const App = () => {
   const [fruit, setFruit] = useState("mango");
@@ -230,15 +235,31 @@ const App = () => {
       <UseEffct />
       {/* lifcycle method */}
       {display && <Counter count={count} data={data} />}
+
       <button onClick={() => {
         setcount(count + 1)
       }}>count{count}</button>
+
       <button onClick={() => {
         setdata(data + 1)
       }}>data{data}</button>
+
       <button onClick={() => {
         setdisplay(!display)
       }}>Toggle</button>
+
+      {/* ------------ learn css styling ------*/}
+      <Styling />
+      {/* ------------ Dynamic and conditional styling ------*/}
+      <Dystyle />
+      {/* -------------External styling ---------*/}
+      <Exstyling />
+
+      {/*----------- style with css modules ---------- */}
+      <UserProfile />
+
+      {/* ----------styled components---------- */}
+      <Styledcom />
     </div>
   )
 }
