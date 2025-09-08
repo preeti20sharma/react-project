@@ -20,6 +20,9 @@ import Dystyle from './Dystyle'
 import Exstyling from './Exstyling'
 import UserProfile from './UserProfile'
 import Styledcom from './Styledcom'
+import Userefhook from './Userefhook'
+import Uncontroll from './Uncontroll'
+import PassFunc from './PassFunc'
 
 const App = () => {
   const [fruit, setFruit] = useState("mango");
@@ -144,6 +147,12 @@ const App = () => {
     },
   ]
 
+  const passFunction = () => {
+    alert("im parent component fucntion");
+  }
+  const FunctionPara = (name) => {
+    alert(name);
+  }
   return (
     <div>
       <h1>{fruit}</h1>
@@ -257,9 +266,18 @@ const App = () => {
 
       {/*----------- style with css modules ---------- */}
       <UserProfile />
-
       {/* ----------styled components---------- */}
       <Styledcom />
+
+      {/* -----UseRef Hook in react js ------- */}
+      <Userefhook />
+      {/* -------- Uncontrolled component ------------*/}
+      <Uncontroll />
+      {/* call parent component function to child component function */}
+
+      <PassFunc functionPass={passFunction} />
+      <PassFunc functionWithPara={FunctionPara} />
+
     </div>
   )
 }
