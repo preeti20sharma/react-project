@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PassFunc = ({ functionPass, functionWithPara }) => {
+const PassFunc = ({ functionPass, functionWithPara, }) => {
     const name = "preeti"
     return (
         <div>

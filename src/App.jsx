@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 import FirstSession from './FirstSession'
 import User from './User'
-import names from './Names'
 import Namesvalue from './Names'
 import Student from './Student'
 import Advprops from './AdvProps'
@@ -23,6 +22,11 @@ import Styledcom from './Styledcom'
 import Userefhook from './Userefhook'
 import Uncontroll from './Uncontroll'
 import PassFunc from './PassFunc'
+import { useRef } from 'react'
+import ForwardReff from './ForwardReff'
+import UseformStatuss from './UseformStatuss'
+import UseTransition from './UseTransition'
+import PureCompo from './PureCompo'
 
 const App = () => {
   const [fruit, setFruit] = useState("mango");
@@ -40,9 +44,9 @@ const App = () => {
   function handlevalue() {
     setFruit("grapes")
   }
-  const username = "priya sharma";
-  const userage = 20;
-  const useremail = "ps@test.com";
+  // const username = "priya sharma";
+  // const userage = 20;
+  // const useremail = "ps@test.com";
   let userObject = {
     name: "john",
     age: 24,
@@ -153,6 +157,15 @@ const App = () => {
   const FunctionPara = (name) => {
     alert(name);
   }
+
+  const InputRef = useRef();
+  const Handleinput = () => {
+    InputRef.current.value = 1200;
+    InputRef.current.style.color = 'green';
+    InputRef.current.placeholder = "enter user name";
+    InputRef.current.focus();
+  }
+
   return (
     <div>
       <h1>{fruit}</h1>
@@ -278,6 +291,17 @@ const App = () => {
       <PassFunc functionPass={passFunction} />
       <PassFunc functionWithPara={FunctionPara} />
 
+      {/*------------ ForwardRef in React ---------- */}
+      <ForwardReff ref={InputRef} />
+      <button onClick={Handleinput}>update input</button>
+
+      {/* useFormStatus Hook in react js */}
+      <UseformStatuss />
+
+      {/* useTransition Hook in react js */}
+      <UseTransition />
+      {/* Keeping components Pure */}
+      <PureCompo />
     </div>
   )
 }
