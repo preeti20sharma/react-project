@@ -27,6 +27,12 @@ import ForwardReff from './ForwardReff'
 import UseformStatuss from './UseformStatuss'
 import UseTransition from './UseTransition'
 import PureCompo from './PureCompo'
+import DerivedState from './DerivedState'
+import LiftingState from './LiftingState'
+import Updateobj from './Updateobj'
+import UpdateArr from './UpdateArr'
+import ApiIntegration from './ApiIntegration'
+
 
 const App = () => {
   const [fruit, setFruit] = useState("mango");
@@ -302,6 +308,16 @@ const App = () => {
       <UseTransition />
       {/* Keeping components Pure */}
       <PureCompo />
+      {/* Derived state */}
+      <DerivedState />
+      {/* sharing state between components(lifting state up) */}
+      <LiftingState />
+      {/* updating objects in state */}
+      <Updateobj />
+      {/* updating Array in state */}
+      <UpdateArr />
+      {/* json server API */}
+      <ApiIntegration />
     </div>
   )
 }
